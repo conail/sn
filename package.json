@@ -9,7 +9,9 @@
   "dependencies": {
     "pg": "4.x",
     "express": "~4.9.x",
-    "passport": "~0.2.2"
+    "passport": "~0.2.2",
+    "passport-facebook": "~2.0.0",
+    "passport-google-oauth": "~0.2.0"
   },
   "engines": {
     "node": "0.12.2"
