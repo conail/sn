@@ -1,8 +1,11 @@
-var express = require("express");
-var app = express();
-var pg = require("pg");
-var passport = require("passport");
-var jade = require("jade");
+var express       = require("express");
+var flash         = require("connect-flash");
+var cookieParser  = require("cookie-parser");
+var session       = require("express-session");
+var app           = express();
+var pg            = require("pg");
+var passport      = require("passport");
+var jade          = require("jade");
 var LocalStrategy = require("passport-local").Strategy;
 
 // Configure Passport Local Strategy.
@@ -18,8 +21,10 @@ passport.use(new LocalStrategy(function(username, password, done) {
 // Set the serving port, defaulting to 5000.
 app.set('port', (process.env.PORT || 5000));
 
-// Serve static assets from the /public dir.
 app.use(express.static(__dirname + '/public'));
+app.use(cookieParser("keyboard cat"));
+app.use(session({ cookie: { maxAge: 60000 }}));
+app.use(flash());
 
 // Pages ----------------------------------------------------------------------
 // / - Index
@@ -40,13 +45,13 @@ app.get('/db', function (request, response) {
 
 // Session Authentication -----------------------------------------------------
 app.get("/login", function(q, r) {
+  console.log(q.flash());
   var fn = jade.compileFile('views/login.jade');
   r.send(fn());
 });
 
-app.post('/login', passport.authenticate('local'), function(q, r) {
-  res.redirect('/users/' + q.user.username);
-});
+app.post('/login',passport.authenticate('local', 
+  { successRedirect: '/', failureRedirect: '/login', failureFlash: true }));
 
 // Serve! ---------------------------------------------------------------------
 app.listen(app.get('port'), function() {

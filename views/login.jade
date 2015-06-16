@@ -5,18 +5,20 @@ html
     header
       nav#user
         a(href="/login") Login
+        a(href="/register") Register
       nav#primary
         a(href="/") Home
         a(href="/users") Users
     main
-      form(name="login")
+      h1#flash= "alert" + flash
+      form#login(action="/login" method="post")
         fieldset
           label
             span Username
-            input(type="text")
+            input(type="text" name="username")
           label
             span Password
-            input(type="password")
+            input(type="password" name="password")
         fieldset.controls
           input(type="submit" value="Login") 
     footer
