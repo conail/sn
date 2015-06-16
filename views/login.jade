@@ -1,12 +1,13 @@
 html
   head
+    link(rel="stylesheet" type="text/css" href="/css/global.css")
   body
     header
+      nav#user
+        a(href="/login") Login
       nav#primary
         a(href="/") Home
         a(href="/users") Users
-      nav#user
-        a(href="/login") Login
     main
       form(name="login")
         fieldset

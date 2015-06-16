@@ -1,0 +1,12 @@
+* { border:0; font:1em sans-serif; margin:0; padding:0; }
+
+body > header { background:#069; color:#FFF; }
+body > header nav a { color:#FFF; display:inline-block; padding:0.5em; }
+body > header nav#user { float:right; }
+
+form { border:1px solid #CCC; margin:1em; }
+form fieldset.controls { background:#CCC; }
+form fieldset.controls input { padding:1em; }
+form fieldset label { margin:1em; }
+form fieldset label span { display:inline-block; font-weight:bold; margin:1em; }
+form fieldset label input { border:1px solid #CCC; padding:0.5em; }
