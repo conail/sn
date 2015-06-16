@@ -18,9 +18,9 @@ passport.use(new LocalStrategy(function(username, password, done) {
   });
 }));
 
-// Set the serving port, defaulting to 5000.
-app.set('port', (process.env.PORT || 5000));
-
+app.set("port", process.env.PORT || 5000);
+app.set("views", __dirname + "/views");
+app.set("view engine", "jade");
 app.use(express.static(__dirname + '/public'));
 app.use(cookieParser("keyboard cat"));
 app.use(session({ cookie: { maxAge: 60000 }}));
@@ -45,9 +45,7 @@ app.get('/db', function (request, response) {
 
 // Session Authentication -----------------------------------------------------
 app.get("/login", function(q, r) {
-  console.log(q.flash());
-  var fn = jade.compileFile('views/login.jade');
-  r.send(fn());
+  r.render('login', { messages: q.flash() });
 });
 
 app.post('/login',passport.authenticate('local', 

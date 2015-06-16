@@ -10,7 +10,9 @@ html
         a(href="/") Home
         a(href="/users") Users
     main
-      h1#flash= "alert" + flash
+      - if (messages.error)
+        #alert.error
+          h1= messages.error
       form#login(action="/login" method="post")
         fieldset
           label
