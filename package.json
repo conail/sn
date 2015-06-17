@@ -18,7 +18,8 @@
     "express-session": "~1.11.3",
     "connect-flash": "~0.1.1",
     "bcrypt-nodejs": "0.0.3",
-    "mongoose": "~4.0.5"
+    "mongoose": "~4.0.5",
+    "morgan": "~1.6.0"
   },
   "engines": {
     "node": "0.12.2"
