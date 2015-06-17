@@ -12,6 +12,7 @@ var logger        = require("morgan");
 var jade          = require("jade");
 var passport      = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
+var orm           = require("sequelize");
 
 // Application Configuration ==================================================
 var app           = express();
@@ -42,29 +43,8 @@ passport.use(new LocalStrategy(function(username, password, done) {
 }));
 
 // Routing ====================================================================
-// / - Index
-app.get('/', function(q, r) {
-  r.send(q.toString());
-});
-
-// /db - Database connectivity test.
-app.get('/db', function (request, response) {
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('SELECT * FROM test_table', function(err, result) {
-      done();
-      if (err) response.send("Error " + err);
-      else response.send(result.rows);
-    });
-  });
-})
-
-// Session Authentication -----------------------------------------------------
-app.get("/login", function(q, r) {
-  r.render('login', { messages: q.flash() });
-});
-
-app.post('/login',passport.authenticate('local', 
-  { successRedirect: '/', failureRedirect: '/login', failureFlash: true }));
+var routes = require("./app/routes.js");
+app.use('/', routes);
 
 // Error Handling =============================================================
 app.use(function(e, q, r, next) {
