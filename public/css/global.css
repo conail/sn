@@ -15,5 +15,7 @@ form fieldset label input { border:1px solid #CCC; background:#EEE; padding:0.5e
 
 
 main { display:block; overflow:auto; }
+main #alert { background: #EEE; border:1px solid #BBB; padding:1em; }
+main #alert.error { background: #FEE; border:1px solid #C00; }
 
 form#login { float:right; width:20em; }

@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title #{title}
+    link(rel="stylesheet" type="text/css" href="/css/global.css")
+  body
+    header
+      nav#user
+        a(href="/login") Login
+        a(href="/register") Register
+      nav#primary
+        a(href="/") Home
+        a(href="/users") Users
+    main
+      block content
+    footer
+      p.copyright Copyright &copy; 2015

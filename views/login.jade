@@ -1,27 +1,15 @@
-html
-  head
-    link(rel="stylesheet" type="text/css" href="/css/global.css")
-  body
-    header
-      nav#user
-        a(href="/login") Login
-        a(href="/register") Register
-      nav#primary
-        a(href="/") Home
-        a(href="/users") Users
-    main
-      - if (messages.error)
-        #alert.error
-          h1= messages.error
-      form#login(action="/login" method="post")
-        fieldset
-          label
-            span Username
-            input(type="text" name="username")
-          label
-            span Password
-            input(type="password" name="password")
-        fieldset.controls
-          input(type="submit" value="Login") 
-    footer
-      p.copyright Copyright &copy; 2015
+extend layout
+block content
+  - if (messages.error)
+    #alert.error
+      h1= messages.error
+  form#login(action="/login" method="post")
+    fieldset
+      label
+        span Username
+        input(type="text" name="username")
+      label
+        span Password
+        input(type="password" name="password")
+    fieldset.controls
+      input(type="submit" value="Login") 
