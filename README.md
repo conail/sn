@@ -116,3 +116,15 @@ Review: 20/6/15
 - Event
 - Schedule
 - Location
+
+# Implementation Notes
+
+## Authentication
+
+Align application users and groups with native filesystem and persistence 
+store.  We might need to store and fork binary assets in the future and it'd 
+be nice to reuse common tools.
+
+## Tiers
+
+Introduce tiers that generalize feature and system objects.
