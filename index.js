@@ -11,7 +11,6 @@ var pg            = require("pg");
 var logger        = require("morgan");
 var jade          = require("jade");
 var passport      = require("passport");
-var LocalStrategy = require("passport-local").Strategy;
 var orm           = require("sequelize");
 
 // Application Configuration ==================================================
@@ -30,17 +29,6 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(__dirname + '/public'));
-
-// Authentication Strategies.
-passport.use(new LocalStrategy(function(username, password, done) {
-  User.findOne({ username: username }, function (err, user) {
-    if (err) return done(err);
-    if (!user) return done(null, false, { message: 'Incorrect username.' });
-    if (!user.validPassword(password)) 
-      return done(null, false, { message: 'Incorrect password.' });
-    return done(null, user);
-  });
-}));
 
 // Routing ====================================================================
 app.use('/', require("./app/routes"));
