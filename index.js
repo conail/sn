@@ -43,8 +43,8 @@ passport.use(new LocalStrategy(function(username, password, done) {
 }));
 
 // Routing ====================================================================
-var routes = require("./app/routes.js");
-app.use('/', routes);
+app.use('/', require("./app/routes"));
+app.use('/', require("./app/routes/sessions"));
 
 // Error Handling =============================================================
 app.use(function(e, q, r, next) {
