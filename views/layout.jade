@@ -6,8 +6,11 @@ html
   body
     header
       nav#user
-        a(href="/login") Login
-        a(href="/register") Register
+        - if (loggedin) 
+          a(href="/logout") Logout
+        - else
+          a(href="/login") Login
+          a(href="/register") Register
       nav#primary
         a(href="/") Home
         a(href="/users") Users
