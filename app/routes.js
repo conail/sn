@@ -4,7 +4,7 @@ var passport = require("passport");
 
 // / - Index
 router.get('/', function(q, r) {
-  r.send(q.toString());
+  r.render("home", { title: "Home" });
 });
 
 // /db - Database connectivity test.
@@ -29,7 +29,19 @@ router.post('/login',passport.authenticate('local',
 router.get("/logout", function(q, r) {
   q.logout();
   r.redirect("/");
-})
+});
+
+// Register
+router.get("/register", function(q, r){
+  r.render("register");
+});
+
+router.post('/register', function(q, r){
+  Account.register(new Account({ username : q.body.username }), q.body.password, function(e, account) {
+    if (e) return r.render("register", { account : account });
+    passport.authenticate("local")(q, r, function (){ r.redirect('/'); });
+  });
+});
 
 // Export =====================================================================
 module.exports = router;
