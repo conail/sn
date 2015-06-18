@@ -1,5 +1,7 @@
 * { border:0; font:1em Roboto, sans-serif; margin:0; padding:0; }
+html, body { height:100%;  }
 
+body { display:flex; flex-direction:column; }
 body > header, 
 body > footer { background:#069; color:#FFF; padding:1em; }
 body > header nav a { color:#FFF; display:inline-block; padding:0.5em; text-decoration:none; }
@@ -14,7 +16,7 @@ form fieldset label span { display:block; margin:0.5em 0; }
 form fieldset label input { border:1px solid #CCC; background:#EEE; display:block; padding:0.5em; }
 
 
-main { display:block; overflow:auto; }
+main { display:block; overflow:auto; flex:1 1 auto; }
 main #alert { background: #EEE; border:1px solid #BBB; padding:1em; }
 main #alert.error { background: #FEE; border:1px solid #C00; }
 main h1 { font-size:1.8em; padding:0.556em; }
