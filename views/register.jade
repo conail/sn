@@ -1,0 +1,15 @@
+extend layout
+block content
+  - if (messages.error)
+    #alert.error
+      h1= messages.error
+  form#login(action="/login" method="post")
+    fieldset
+      label
+        span Username
+        input(type="text" name="username")
+      label
+        span Password
+        input(type="password" name="password")
+    fieldset.controls
+      input(type="submit" value="Register") 
