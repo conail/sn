@@ -23,7 +23,10 @@
     "body-parser": "~1.13.1",
     "sequelize": "~3.2.0",
     "coffee": "~1.1.0",
-    "coffee-script": "~1.9.3"
+    "coffee-script": "~1.9.3",
+    "gulp": "~3.9.0",
+    "gulp-cjsx": "~3.0.0",
+    "react": "~0.13.3"
   },
   "engines": {
     "node": "0.12.2"

@@ -1,0 +1,7 @@
+var cjsx = require('gulp-cjsx');
+ 
+gulp.task('cjsx', function() {
+  gulp.src('./cjsx/*.cjsx')
+    .pipe(cjsx({bare: true}).on('error', gutil.log))
+    .pipe(gulp.dest('./public/'));
+});
