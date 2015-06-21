@@ -1,6 +1,5 @@
-# index.coffee
+require("coffee-script")
 
-# Module Requirements 
 express       = require "express"
 # TODO: Determine where secret is set.
 session       = require "express-session"
@@ -28,7 +27,7 @@ app.use session({ cookie: { maxAge: 60000 }})
 app.use flash()
 app.use passport.initialize()
 app.use passport.session()
-app.use express.static(__dirname + '/public')
+app.use express.static("#{__dirname}/public")
 
 # Routing
 app.use '/', require("./app/routes")

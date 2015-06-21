@@ -5,7 +5,6 @@ express       = require "express"
 # TODO: Determine where secret is set.
 session       = require "express-session"
 cookieParser  = require "cookie-parser"
-bodyParser    = require "body-parser"
 flash         = require "connect-flash"
 pg            = require "pg"
 logger        = require "morgan"
@@ -21,8 +20,6 @@ app.set "view engine", "jade"
 
 # Middleware Configuration 
 app.use logger("dev")
-app.use bodyParser.json()
-app.use bodyParser.urlencoded({ extended: false })
 app.use cookieParser("keyboard cat")
 app.use session({ cookie: { maxAge: 60000 }})
 app.use flash()
