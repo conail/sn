@@ -7,15 +7,11 @@ var LocalStrategy = require("passport-local").Strategy;
 // Authentication Strategies.
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    User.findOne({ username: username }, function (err, user) {
-      if (err) 
-      return done(err);
-      if (!user) 
-        return done(null, false, { message: 'Incorrect username.' });
-      if (!user.validPassword(password)) 
+    if (username !== "conail") 
+      return done(null, false, { message: 'Incorrect username.' });
+    else if (password !== "pw") 
         return done(null, false, { message: 'Incorrect password.' });
-      return done(null, user);
-    });
+    else return done(null, {});
   })
 );
 
