@@ -15,10 +15,16 @@ form fieldset label { margin:1em; }
 form fieldset label span { display:block; margin:0.5em 0; }
 form fieldset label input { border:1px solid #CCC; background:#EEE; display:block; padding:0.5em; }
 
-
 main { display:block; overflow:auto; flex:1 1 auto; }
 main #alert { background: #EEE; border:1px solid #BBB; padding:1em; }
 main #alert.error { background: #FEE; border:1px solid #C00; }
 main h1 { font-size:1.8em; padding:0.556em; }
 
 form#login { float:right; width:20em; }
+
+#profile {  }
+#profile header { background:#111; color:#FFF; display:flex; height:4em; }
+#profile header img { height:4em; width:4em; order:0; }
+#profile header h1 { order:1; }
+#profile ul.actions { list-style:none; }
+#profile ul.actions li { background:#069; color:#FFF; display:block; }

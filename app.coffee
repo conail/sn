@@ -31,6 +31,9 @@ app.use express.static(__dirname + '/public')
 app.use '/', require("./app/routes")
 app.use '/', require("./app/routes/sessions")
 
+app.get '/profile', (q, r) ->
+  r.render('profile')
+
 # Error Handling 
 app.use (e, q, r, next) ->
   r.status e.status || 500
