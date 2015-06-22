@@ -8,7 +8,7 @@ Review: 20/6/15
 
 [x] Profiles
 [x] Script include to register new users
-[ ] Organizations
+[x] Organizations
 [ ] Class List
 [ ] Mailing List
 [ ] Message
@@ -16,10 +16,10 @@ Review: 20/6/15
 
 # 2.  Classes Required
 
-[ ] User
-[ ] Session
-[ ] Credential
-[ ] Organization 
+[x] User
+[x] Session
+[x] Credential
+[x] Organization 
 [ ] Event
 [ ] CommsSchedule
 [ ] Email
@@ -29,7 +29,7 @@ Review: 20/6/15
 
 [x] Users can register.
 [ ] Users can receive messages via email.
-[ ] User can view their own profile (image).
+[x] User can view their own profile (image).
 [ ] User can view course list.
 [ ] Timed messages can be sent according to CommsSchedule (single event after course).
 [ ] User can view sent messages as HTML.
@@ -37,8 +37,8 @@ Review: 20/6/15
 
 # 4.  External Requirements
 
-[ ] Mail Agent (Amazon/Mailgunâ¦ or MailChimp)
-[ ] Heroku
+[x] Mail Agent (Mailgun)
+[x] Heroku
 
 # 5.  Future Sprints
 
