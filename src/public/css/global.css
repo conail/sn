@@ -11,7 +11,7 @@ html, body {
   display: flex;
   flex-direction: column; }
   #app > header, #app > footer {
-    background: #064;
+    background: #C30;
     color: #FFF;
     padding: 1em; }
     #app > header a, #app > footer a {
@@ -19,6 +19,9 @@ html, body {
       display: inline-block;
       padding: 0.5em;
       text-decoration: none; }
+      #app > header a:hover, #app > footer a:hover {
+        background: #FFF;
+        color: #C30; }
     #app > header nav#user, #app > footer nav#user {
       float: right; }
 
@@ -75,18 +78,28 @@ form#login {
     order: 0; }
   #profile header h1 {
     order: 1; }
-  #profile header ul.actions {
+  #profile header ul {
     float: right;
-    list-style: none; }
-    #profile header ul.actions li {
+    order: 2;
+    list-style: none;
+    margin: 1em; }
+    #profile header ul li {
       background: #069;
       color: #FFF;
-      display: block; }
-  #profile header button {
-    padding: 0.5em; }
+      display: block;
+      list-style: none; }
+      #profile header ul li button {
+        padding: 0.5em; }
 
-#profile dl.metadata {
-  clear: both; }
-  #profile dl.metadata dt {
-    font-weight: bold;
-    font-style: italic; }
+dl {
+  clear: both;
+  padding: 1em; }
+  dl dt {
+    font-weight: bold; }
+  dl dd {
+    margin-bottom: 1em; }
+
+.panel {
+  padding: 1em; }
+  .panel h2 {
+    font-size: 1.4em; }

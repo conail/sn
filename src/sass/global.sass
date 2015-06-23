@@ -1,3 +1,8 @@
+$c1: #C30
+$c2: #222
+$fg: #FFF
+$bg: #000
+
 *
   border: 0
   font: 1em Roboto, sans-serif
@@ -11,7 +16,7 @@ html, body
   display: flex
   flex-direction: column
   > header, > footer
-    background: #069
+    background: $c1 
     color: #FFF
     padding: 1em
     a
@@ -19,6 +24,9 @@ html, body
       display: inline-block
       padding: 0.5em
       text-decoration: none
+      &:hover
+        background: $fg
+        color: $c1
     nav#user 
       float: right
 
@@ -59,6 +67,7 @@ main
   h1
     font-size: 1.8em
     padding: 0.556em
+  h2
 
 form#login
   float: right
@@ -66,19 +75,37 @@ form#login
 
 #profile 
   header
-    background: #111
+    background: $c2
     color: #FFF
     display: flex
     height: 4em
     img
-      height: 4em
+      height: 100%
       width: 4em
       order: 0
     h1
       order: 1
-    ul.actions
+    ul
+      float: right
+      order: 2
       list-style: none
+      margin: 1em
       li
         background: #069
         color: #FFF
         display: block
+        list-style: none
+        button
+          padding: 0.5em
+dl
+  clear: both
+  padding: 1em
+  dt
+    font-weight: bold
+  dd
+    margin-bottom: 1em
+
+.panel
+  padding: 1em
+  h2
+    font-size: 1.4em

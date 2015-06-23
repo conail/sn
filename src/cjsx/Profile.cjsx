@@ -8,7 +8,7 @@ Profile = React.createClass
           <li><button>Private Message</button></li>
         </ul>
       </header>
-      <dl class="metadata">
+      <dl className="metadata">
         <ul class="privacy-controls">
           <li>Public</li>
         </ul>
@@ -19,14 +19,14 @@ Profile = React.createClass
         <dt>Phone</dt>
         <dd></dd>
       </dl>
-      <div class="activity panel">
+      <div className="activity panel">
         <h2>Recent Activity</h2>
       </div>
-      <div class="badges panel">
+      <div className="badges panel">
         <h2>Badges</h2>
         <p>AP1</p>
       </div>
-      <div class="courses panel">
+      <div className="courses panel">
         <h2>Course</h2>
       </div>
     </div>
