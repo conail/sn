@@ -11,7 +11,7 @@ html, body {
   display: flex;
   flex-direction: column; }
   #app > header, #app > footer {
-    background: #069;
+    background: #064;
     color: #FFF;
     padding: 1em; }
     #app > header a, #app > footer a {
@@ -65,19 +65,28 @@ form#login {
   width: 20em; }
 
 #profile header {
-  background: #111;
+  background: #222;
   color: #FFF;
   display: flex;
   height: 4em; }
   #profile header img {
-    height: 4em;
+    height: 100%;
     width: 4em;
     order: 0; }
   #profile header h1 {
     order: 1; }
   #profile header ul.actions {
+    float: right;
     list-style: none; }
     #profile header ul.actions li {
       background: #069;
       color: #FFF;
       display: block; }
+  #profile header button {
+    padding: 0.5em; }
+
+#profile dl.metadata {
+  clear: both; }
+  #profile dl.metadata dt {
+    font-weight: bold;
+    font-style: italic; }

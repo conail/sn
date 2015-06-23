@@ -5,12 +5,13 @@ Profile = React.createClass
         <h1>{@props.name}</h1>
         <img src="/img/avatar.png"/> 
         <ul class="actions">
-          <li>Private Message</li>
+          <li><button>Private Message</button></li>
         </ul>
       </header>
       <dl class="metadata">
-        <div class="privacy-controls">
-        </div>
+        <ul class="privacy-controls">
+          <li>Public</li>
+        </ul>
         <dt>Joined</dt>
         <dd>June 1, 2015</dd>
         <dt>Last Seen</dt>
