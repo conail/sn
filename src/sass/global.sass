@@ -1,0 +1,84 @@
+*
+  border: 0
+  font: 1em Roboto, sans-serif
+  margin: 0
+  padding: 0
+
+html, body
+  height: 100%
+
+#app 
+  display: flex
+  flex-direction: column
+  > header, > footer
+    background: #069
+    color: #FFF
+    padding: 1em
+    a
+      color: #FFF
+      display: inline-block
+      padding: 0.5em
+      text-decoration: none
+    nav#user 
+      float: right
+
+form 
+  border: 1px solid #CCC
+  margin: 1em
+  fieldset
+    padding: 1em
+    label
+      margin: 1em
+      span
+        display: block
+        margin: 0.5em 0
+      input
+        border: 1px solid #CCC
+        background: #EEE
+        display: block
+        padding: 0.5em
+    &.controls
+      background: #CCC
+      padding: 0
+      text-align: right
+      input
+        padding: 1em
+        width: 100%
+
+main
+  display: block
+  overflow: auto
+  flex: 1 1 auto
+  #alert
+    background: #EEE
+    border: 1px solid #BBB
+    padding: 1em
+    &.error
+      background: #FEE
+      border: 1px solid #C00
+  h1
+    font-size: 1.8em
+    padding: 0.556em
+
+form#login
+  float: right
+  width: 20em
+
+#profile 
+  header
+    background: #111
+    color: #FFF
+    display: flex
+    height: 4em
+    img
+      height: 4em
+      width: 4em
+      order: 0
+    h1
+      order: 1
+    ul.actions
+      list-style: none
+      li
+        background: #069
+        color: #FFF
+        display: block

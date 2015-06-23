@@ -1,8 +1,8 @@
 Profile = React.createClass
   render: ->
-    <div class="profile">
+    <div id="profile">
       <header>
-        <h1>John Smith</h1>
+        <h1>{@props.name}</h1>
         <img src="/img/avatar.png"/> 
         <ul class="actions">
           <li>Private Message</li>

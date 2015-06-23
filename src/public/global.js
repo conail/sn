@@ -1,3 +1,3 @@
 window.onload = function() {
-  React.render(React.createElement(Profile), document.getElementById("profile"));
+  React.render(React.createElement(App), document.getElementById("app"));
 }

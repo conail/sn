@@ -1,30 +1,83 @@
-* { border:0; font:1em Roboto, sans-serif; margin:0; padding:0; }
-html, body { height:100%;  }
+* {
+  border: 0;
+  font: 1em Roboto, sans-serif;
+  margin: 0;
+  padding: 0; }
 
-body { display:flex; flex-direction:column; }
-body > header, 
-body > footer { background:#069; color:#FFF; padding:1em; }
-body > header nav a { color:#FFF; display:inline-block; padding:0.5em; text-decoration:none; }
-body > header nav#user { float:right; }
+html, body {
+  height: 100%; }
 
-form { border:1px solid #CCC; margin:1em; }
-form fieldset { padding:1em; }
-form fieldset.controls { background:#CCC; padding:0; text-align:right; }
-form fieldset.controls input { padding:1em; width:100%; }
-form fieldset label { margin:1em; }
-form fieldset label span { display:block; margin:0.5em 0; }
-form fieldset label input { border:1px solid #CCC; background:#EEE; display:block; padding:0.5em; }
+#app {
+  display: flex;
+  flex-direction: column; }
+  #app > header, #app > footer {
+    background: #069;
+    color: #FFF;
+    padding: 1em; }
+    #app > header a, #app > footer a {
+      color: #FFF;
+      display: inline-block;
+      padding: 0.5em;
+      text-decoration: none; }
+    #app > header nav#user, #app > footer nav#user {
+      float: right; }
 
-main { display:block; overflow:auto; flex:1 1 auto; }
-main #alert { background: #EEE; border:1px solid #BBB; padding:1em; }
-main #alert.error { background: #FEE; border:1px solid #C00; }
-main h1 { font-size:1.8em; padding:0.556em; }
+form {
+  border: 1px solid #CCC;
+  margin: 1em; }
+  form fieldset {
+    padding: 1em; }
+    form fieldset label {
+      margin: 1em; }
+      form fieldset label span {
+        display: block;
+        margin: 0.5em 0; }
+      form fieldset label input {
+        border: 1px solid #CCC;
+        background: #EEE;
+        display: block;
+        padding: 0.5em; }
+    form fieldset.controls {
+      background: #CCC;
+      padding: 0;
+      text-align: right; }
+      form fieldset.controls input {
+        padding: 1em;
+        width: 100%; }
 
-form#login { float:right; width:20em; }
+main {
+  display: block;
+  overflow: auto;
+  flex: 1 1 auto; }
+  main #alert {
+    background: #EEE;
+    border: 1px solid #BBB;
+    padding: 1em; }
+    main #alert.error {
+      background: #FEE;
+      border: 1px solid #C00; }
+  main h1 {
+    font-size: 1.8em;
+    padding: 0.556em; }
 
-#profile {  }
-#profile header { background:#111; color:#FFF; display:flex; height:4em; }
-#profile header img { height:4em; width:4em; order:0; }
-#profile header h1 { order:1; }
-#profile ul.actions { list-style:none; }
-#profile ul.actions li { background:#069; color:#FFF; display:block; }
+form#login {
+  float: right;
+  width: 20em; }
+
+#profile header {
+  background: #111;
+  color: #FFF;
+  display: flex;
+  height: 4em; }
+  #profile header img {
+    height: 4em;
+    width: 4em;
+    order: 0; }
+  #profile header h1 {
+    order: 1; }
+  #profile header ul.actions {
+    list-style: none; }
+    #profile header ul.actions li {
+      background: #069;
+      color: #FFF;
+      display: block; }
