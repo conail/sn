@@ -1,24 +1,31 @@
+React = require 'react'
+
 Profile = React.createClass
+  sendMessage: (e) ->
+    alert 'My message'
+
   render: ->
     <div id="profile">
       <header>
         <h1>{@props.name}</h1>
         <img src="/img/avatar.png"/> 
         <ul class="actions">
-          <li><button>Private Message</button></li>
+          <li><button onClick={@sendMessage}>Private Message</button></li>
         </ul>
       </header>
-      <dl className="metadata">
-        <ul class="privacy-controls">
+      <div className="metadata">
+        <ul className="privacy">
           <li>Public</li>
         </ul>
-        <dt>Joined</dt>
-        <dd>June 1, 2015</dd>
-        <dt>Last Seen</dt>
-        <dd>June 12, 2015</dd>
-        <dt>Phone</dt>
-        <dd></dd>
-      </dl>
+        <dl>
+          <dt>Joined</dt>
+          <dd>June 1, 2015</dd>
+          <dt>Last Seen</dt>
+          <dd>June 12, 2015</dd>
+          <dt>Phone</dt>
+          <dd></dd>
+        </dl>
+      </div>
       <div className="activity panel">
         <h2>Recent Activity</h2>
       </div>
@@ -27,6 +34,8 @@ Profile = React.createClass
         <p>AP1</p>
       </div>
       <div className="courses panel">
-        <h2>Course</h2>
+        <h2>Courses</h2>
       </div>
     </div>
+
+module.exports = Profile

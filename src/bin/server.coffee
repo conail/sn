@@ -8,15 +8,14 @@ cookieParser  = require "cookie-parser"
 flash         = require "connect-flash"
 pg            = require "pg"
 logger        = require "morgan"
-jade          = require "jade"
 passport      = require "passport"
 orm           = require "sequelize"
 
 # Application Configuration 
 app           = express()
 app.set "port", process.env.PORT || 5000
-app.set "views", __dirname + "/views"
-app.set "view engine", "jade"
+app.set "views", __dirname + "/../views"
+app.set 'view engine', 'jade'
 
 # Middleware Configuration 
 app.use logger("dev")
@@ -25,15 +24,12 @@ app.use session({ cookie: { maxAge: 60000 }})
 app.use flash()
 app.use passport.initialize()
 app.use passport.session()
-app.use express.static(__dirname + '/public')
+app.use express.static("#{__dirname}/../public") 
 
 # Routing
-app.use '/', require("./app/routes")
-app.use '/', require("./app/routes/sessions")
-
-app.get '/profile', (q, r) ->
-  r.render('profile')
-
+app.get '/', (q, r) ->
+  r.sendFile '../public/index.html', { root: __dirname }
+ 
 # Error Handling 
 app.use (e, q, r, next) ->
   r.status e.status || 500

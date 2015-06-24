@@ -1,7 +1,8 @@
-$c1: #C30
+$c1: #069
 $c2: #222
 $fg: #FFF
 $bg: #000
+$lt: #DDD
 
 *
   border: 0
@@ -97,15 +98,21 @@ form#login
         list-style: none
         button
           padding: 0.5em
-dl
-  clear: both
-  padding: 1em
-  dt
-    font-weight: bold
-  dd
-    margin-bottom: 1em
+  .metadata
+    background: $lt
+    clear: both
+    padding: 1em
+    ul.privacy
+      float: right
+    dl
+      dt
+        font-weight: bold
+      dd
+        margin-bottom: 1em
 
 .panel
   padding: 1em
+  width: 30em
+  display: inline-block
   h2
     font-size: 1.4em

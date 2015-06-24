@@ -11,7 +11,7 @@ html, body {
   display: flex;
   flex-direction: column; }
   #app > header, #app > footer {
-    background: #C30;
+    background: #069;
     color: #FFF;
     padding: 1em; }
     #app > header a, #app > footer a {
@@ -21,7 +21,7 @@ html, body {
       text-decoration: none; }
       #app > header a:hover, #app > footer a:hover {
         background: #FFF;
-        color: #C30; }
+        color: #069; }
     #app > header nav#user, #app > footer nav#user {
       float: right; }
 
@@ -91,15 +91,20 @@ form#login {
       #profile header ul li button {
         padding: 0.5em; }
 
-dl {
+#profile .metadata {
+  background: #DDD;
   clear: both;
   padding: 1em; }
-  dl dt {
+  #profile .metadata ul.privacy {
+    float: right; }
+  #profile .metadata dl dt {
     font-weight: bold; }
-  dl dd {
+  #profile .metadata dl dd {
     margin-bottom: 1em; }
 
 .panel {
-  padding: 1em; }
+  padding: 1em;
+  width: 30em;
+  display: inline-block; }
   .panel h2 {
     font-size: 1.4em; }

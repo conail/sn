@@ -1,4 +1,7 @@
-App = React.createClass
+React = require 'react'
+Profile = require '../components/Profile'
+
+AppLayout = React.createClass
   render: ->
     page = ''
     page = <Profile name="John Smith"/>
@@ -22,3 +25,5 @@ App = React.createClass
         <p class="copyright">Copyright &copy; 2015</p>
       </footer>
     </div>
+
+module.exports = AppLayout
