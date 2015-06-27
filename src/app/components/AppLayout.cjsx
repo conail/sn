@@ -1,5 +1,5 @@
 React = require 'react'
-Profile = require '../components/Profile'
+Profile = require './Profile'
 
 AppLayout = React.createClass
   render: ->
@@ -11,7 +11,6 @@ AppLayout = React.createClass
         <nav id="user">
           <a href="/logout">Logout</a>
           <a href="/login">Login</a>
-          <a href="/register">Register</a>
         </nav>
         <nav id="primary">
           <a href="/">Home</a>
