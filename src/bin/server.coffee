@@ -22,8 +22,7 @@ app.use express.static("#{__dirname}/../public")
 
 # Routing
 app.get '/', (q, r) -> 
-  console.log __dirname
-  r.sendFile "/layout.html"
+  r.sendFile "/layout.html", { root: "#{__dirname}/../public/"  }
  
 # Error Handling 
 app.use (e, q, r, next) ->
