@@ -5,6 +5,7 @@ Profile = React.createClass
     alert 'My message'
 
   render: ->
+    @props.name = 'John Smith'
     <div id="profile">
       <header>
         <h1>{@props.name}</h1>
