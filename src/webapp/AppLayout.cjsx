@@ -7,12 +7,11 @@ AppLayout = React.createClass
     <div id="app">
       <header>
         <nav id="user">
-          <a href="/logout">Logout</a>
+          <Link to="register">Register</Link>
           <a href="/login">Login</a>
         </nav>
         <nav id="primary">
-          <a href="/">Home</a>
-          <a href="/users">Users</a>
+          <Link to="profile">Home</Link>
           <Link to="profile">Profile</Link>
           <Link to="courses">Courses</Link>
         </nav>
