@@ -1,22 +1,33 @@
 var path = require('path');
 var webpack = require('webpack');
- 
+
 module.exports = {
-  context: path.join(__dirname + "/src"),
-  entry: "./webapp/app.cjsx",
+  entry: [
+    'webpack-dev-server/client?http://wa-dev.findpartz.com:8080',
+    'webpack/hot/only-dev-server',
+    './src/webapp/router'
+  ],
+  devtool: 'eval',
+  debug: true,
   output: {
-    path: path.join(__dirname + "/src/public/js"),
-    filename: "bundle.js"
+    path: path.join(__dirname, 'build'),
+    filename: 'bundle.js'
   },
   resolveLoader: {
     modulesDirectories: ['node_modules']
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.IgnorePlugin(/vertx/) // https://github.com/webpack/webpack/issues/353
+  ],
   resolve: {
     extensions: ['', '.js', '.cjsx', '.coffee']
   },
   module: {
     loaders: [
-      { test: /\.cjsx$/, loaders: ['coffee', 'cjsx']},
+      { test: /\.css$/, loaders: ['style', 'css']},
+      { test: /\.cjsx$/, loaders: ['react-hot', 'coffee', 'cjsx']},
       { test: /\.coffee$/, loader: 'coffee' }
     ]
   }
