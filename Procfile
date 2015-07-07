@@ -1,1 +1,1 @@
-web: coffee src/bin/server.coffee
+web: npm run watch
