@@ -1,17 +1,18 @@
 Link = require('react-router').Link
 RouteHandler = require('react-router').RouteHandler
 
-AppLayout = React.createClass
+module.exports = React.createClass
   displayName: 'App'
   render: ->
     <div id="app">
       <header>
         <nav id="user">
-          <Link to="register">Register</Link>
+          <a href="/logout">Logout</a>
           <a href="/login">Login</a>
         </nav>
         <nav id="primary">
-          <Link to="profile">Home</Link>
+          <a href="/">Home</a>
+          <a href="/users">Users</a>
           <Link to="profile">Profile</Link>
           <Link to="courses">Courses</Link>
         </nav>
@@ -20,8 +21,7 @@ AppLayout = React.createClass
         <RouteHandler/>
       </main>
       <footer>
-        <p class="copyright">Copyright &copy; 2015</p>
+        <p className="copyright">Copyright &copy; 2015</p>
+        <p className="registration"></p>
       </footer>
     </div>
-
-module.exports = AppLayout
