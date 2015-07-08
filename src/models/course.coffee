@@ -3,13 +3,11 @@
  #
  # Classes are instances of courses, they have datetimes.  Courses do not.
 
-orm = new require('sequelize')(process.env.DATABASE_URL)
+orm = require 'mongoose'
+orm.connect process.env.DATABASE_URL or 'mongodb://localhost/sn'
 
-Course = sequelize.define('course', {
-    title: { type: Sequelize.STRING },
-    summary: { type: Seq0uelize.STRING }
-  }
+Course = mongoose.model 'Cat',
+  name: String
+  summary: String
 
-Course.sync({force: true}).then(() -> User.create({ title: 'Test', summary: 'test.' }) 
-
-module.exports = Course;
+module.exports = Course
