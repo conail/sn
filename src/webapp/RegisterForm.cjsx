@@ -1,4 +1,6 @@
-RegisterForm = React.createComponent
+React = require 'react'
+
+module.exports = React.createClass
   render: ->
     errorMsg = if @props.error then @props.error else ''
 
@@ -20,4 +22,3 @@ RegisterForm = React.createComponent
         <input type="submit" value="Login"/>
       </fieldset>
     </form>
-      
