@@ -1,4 +1,3 @@
-require '../../build/global.css'
 React        = require 'react'
 window.React = React
 Router       = require('react-router')

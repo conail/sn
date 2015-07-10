@@ -1,15 +1,10 @@
 gulp    = require 'gulp'
 gutil   = require 'gulp-util'
-sass   = require 'gulp-sass'
 webpack = require 'webpack'
 map     = require 'map-stream'
 touch   = require 'touch'
 _ = require 'underscore'
 $ = require('gulp-load-plugins')()
-
-
-gulp.task 'sass', ->
-  gulp.src('src/sass/**/*.sass').pipe(sass({ errLogToConsole: true })).pipe(gulp.dest('./build/'));
 
 # Production Settings
 gulp.task 'webpack:build', (callback) ->
@@ -31,7 +26,7 @@ gulp.task 'webpack:build-dev', (callback) ->
     callback()
     return
   return
-gulp.task 'webpack-dev-server', ['sass'], (callback) ->
+gulp.task 'webpack-dev-server', (callback) ->
   touch.sync('./assets/main.css', time: new Date(0))
   DevServer = require('webpack-dev-server')
   devServer = new DevServer(webpack(devConfig),
@@ -52,5 +47,4 @@ gulp.task 'copy-assets', ->
 gulp.task 'default', -> gulp.start 'build'
 gulp.task 'build', ['webpack:build', 'copy-assets']
 gulp.task 'watch', ['copy-assets', 'webpack-dev-server'], ->
-  gulp.watch ['src/sass/**'], ['sass']
   gulp.watch ['src/webapp/**'], ['copy-assets']
