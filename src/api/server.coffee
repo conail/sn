@@ -1,10 +1,12 @@
 express = require 'express'
+logger  = require 'morgan'
+bodyParser = require 'body-parser'
 users   = require './users'
 courses = require './courses'
        
 app = express()
-app.use express.logger('dev')
-app.use express.bodyParser()
+app.use logger('dev')
+app.use bodyParser()
  
 # Users
 app.get('/users', users.findAll)
