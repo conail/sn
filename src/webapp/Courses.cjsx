@@ -6,7 +6,7 @@ APIClient    = require './APIClient'
 module.exports = React.createClass
   componentDidMount: ->
     @api = new APIClient()
-    @api.read('/courses/')
+    @api.read('courses/')
 
   style:
     ul:

@@ -41,10 +41,13 @@ gulp.task 'webpack-dev-server', (callback) ->
     callback()
   return
 
+gulp.task 'api-server', (callback) ->
+  api = require './src/api/server'
+
 # CLI Settings
 gulp.task 'copy-assets', ->
   gulp.src(['assets/**']).pipe(gulp.dest('build')).pipe($.size())
 gulp.task 'default', -> gulp.start 'build'
 gulp.task 'build', ['webpack:build', 'copy-assets']
-gulp.task 'watch', ['copy-assets', 'webpack-dev-server'], ->
+gulp.task 'watch', ['copy-assets', 'api-server', 'webpack-dev-server'], ->
   gulp.watch ['src/webapp/**'], ['copy-assets']

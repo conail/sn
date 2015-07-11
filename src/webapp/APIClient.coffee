@@ -16,7 +16,7 @@ if typeof @XMLHttpRequest == 'undefined'
 APIClient = ->
   # Returns a JSON object given a valid REST URI.
   read: (uri) ->
-    url = process.env.API + uri
+    url = 'http://localhost:3000/' + uri
     xhr = new XMLHttpRequest()
     xhr.addEventListener 'readystatechange', ->
       if xhr.readyState is 4
@@ -24,7 +24,7 @@ APIClient = ->
           data = eval '('+xhr.responseText+')'
         else
           throw new Error()
-    xhr.open 'GET', uri, false
+    xhr.open 'GET', url, false
     xhr.send()
 
 module.exports = APIClient

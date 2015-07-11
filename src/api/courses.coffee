@@ -5,13 +5,12 @@ Db     = mongo.Db
 BSON   = mongo.BSONPure
 
 server = new Server 'localhost', 27017, {auto_reconnect: true}
-db     = new Db 'users', server
+db     = new Db 'test', server
 
 db.open (err, db) ->
   unless err then db.collection 'users', { strict: true }, (err, collection) ->
     if err 
       console.log("The 'users' collection doesn't exist. Creating it with sample data...")
-      populateDB()
 
 exports.findById = (req, res) ->
   id = req.params.id
