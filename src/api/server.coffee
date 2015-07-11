@@ -55,6 +55,6 @@ app.post '/course/:id/delete', (q,r) ->
 
 # Bind server to port.
 app.listen 3333
-console.log 'API listening on port 3000.'
+console.log 'API listening on port 3333.'
 
 module.exports = app
