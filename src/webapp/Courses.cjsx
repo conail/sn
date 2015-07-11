@@ -3,14 +3,18 @@ Link         = require('react-router').Link
 RouteHandler = require('react-router').RouteHandler
 APIClient    = require './APIClient'
 
-module.exports = React.createClass
-  componentDidMount: ->
-    @api = new APIClient()
-    @api.read('courses/')
-
+CourseList = React.createClass
   style:
     ul:
       listStyle: 'square' 
+
+  getInitialState: ->
+    courses: []
+
+  componentDidMount: ->
+    @api = new APIClient()
+    @api.read 'course/', (data) =>
+      @setState courses: data
 
   render: ->
     <div id="courses">
@@ -18,9 +22,12 @@ module.exports = React.createClass
         <h1>Courses</h1>
       </header>
       <ul style={@style.ul}>
-        <li><Link to="profile">Course</Link></li>
-        <li><Link to="profile">Course</Link></li>
-        <li><Link to="profile">Course</Link></li>
-        <li><Link to="profile">Course</Link></li>
+        {@state.courses.map (course) ->  
+          <li>
+            <Link to="profile">{course.name}</Link>
+          </li>
+        }
       </ul>
     </div>
+
+module.exports = CourseList
