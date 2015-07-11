@@ -6,12 +6,14 @@ App          = require './AppLayout'
 RegisterForm = require './RegisterForm'
 Profile      = require './Profile'
 Courses      = require './Courses'
+Homepage     = require './Homepage'
 
 routes = (
   <Route handler={App}>
     <Route name="register" handler={RegisterForm} path="/register"/>
-    <Route name="profile" handler={Profile} path="/"/>
+    <Route name="profile" handler={Profile} path="/profile"/>
     <Route name="courses" handler={Courses} path="/courses"/>
+    <Route name="homepage" handler={Homepage} path="/"/>
   </Route>
 )
 

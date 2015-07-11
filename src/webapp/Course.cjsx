@@ -1,16 +1,18 @@
 Course = React.createClass
   render: ->
-    <div class="course">
+    <div className="course">
       <header>
-        <h1>AP1</h1>
+        <h1>{@props.name}</h1>
       </header>
-      <div class="synopsis">
-
+      <div className="synopsis">
+        <p>{@props.summary}</p>
       </div>
-      <div class="videos panel">
+      <div className="videos panel">
         <h2>Videos</h2>
       </div>
-      <div class="downloads panel">
+      <div className="downloads panel">
         <h2>Downloads</h2>
       </div>
     </div>
+
+module.exports = Course

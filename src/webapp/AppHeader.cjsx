@@ -16,13 +16,11 @@ module.exports = React.createClass
     <header style={@style.header}>
       <h1>{@siteTitle}</h1>
       <nav id="user">
+        <Link to="profile">Profile</Link>
         <a href="/logout">Logout</a>
-        <a href="/login">Login</a>
       </nav>
       <nav id="primary">
         <a href="/">Home</a>
-        <a href="/users">Users</a>
-        <Link to="profile">Profile</Link>
         <Link to="courses">Courses</Link>
       </nav>
     </header>

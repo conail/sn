@@ -2,6 +2,7 @@ React        = require 'react'
 Link         = require('react-router').Link
 RouteHandler = require('react-router').RouteHandler
 APIClient    = require './APIClient'
+Course       = require './Course'
 
 CourseList = React.createClass
   style:
@@ -23,9 +24,7 @@ CourseList = React.createClass
       </header>
       <ul style={@style.ul}>
         {@state.courses.map (course) ->  
-          <li>
-            <Link to="profile">{course.name}</Link>
-          </li>
+          <Course name={course.name} summary={course.name}/>
         }
       </ul>
     </div>
