@@ -9,4 +9,4 @@ User = mongoose.model 'User',
   modified: Date
   accessed: Date
 
-module.exports = userSchema
+module.exports = User
