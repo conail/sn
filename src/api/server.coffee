@@ -1,28 +1,54 @@
 express = require 'express'
 logger  = require 'morgan'
 bodyParser = require 'body-parser'
-users   = require './users'
-courses = require './courses'
+mongo = require 'mongodb'
+db = require './models/db'
+User = require './models/user'
+Course = require './models/course'
        
 app = express()
 app.use logger('dev')
 app.use bodyParser()
  
-# Users
-app.get('/users', users.findAll)
-app.get('/users/:id', users.findById)
-app.post('/users', users.add)
-app.put('/users/:id', users.update)
-app.delete('/users/:id', users.delete)
+# User Routes
+app.get '/user',             (q,r) ->
+  r.send User.find()
+app.get '/user/:id',         (q,r) ->
+  r.send User.findById(q.id)
 
-# Courses
-app.get('/courses', courses.findAll)
-app.get('/courses/:id', courses.findById)
-app.post('/courses', courses.add)
-app.put('/courses/:id', courses.update)
-app.delete('/courses/:id', courses.delete)
- 
+app.post '/user/create',     (q,r) ->
+  User.create(q.user)
+  r.send 200
+
+app.post '/user/:id/edit' ,  (q,r) ->
+  User.findById(q.id).update(q.user)
+  r.send 200
+
+app.post '/user/:id/delete', (q,r) ->
+  User.findById(q.id).delete()
+  r.send 200
+
+# Course Routes
+app.get '/course', (q,r) ->
+  r.send Course.find()
+
+app.post '/course/new', (q,r) ->
+  Course.create(q.user)
+  r.send 200
+
+app.get '/course/:id', (q,r) ->
+  r.send Course.findById(q.id)
+
+app.post '/course/:id/edit', (q,r) ->
+  User.findById(q.id).update(q.user)
+  r.send 200
+
+app.post '/course/:id/delete', (q,r) ->
+  Course.findById(q.id).delete()
+  r.send 200
+
+# Bind server to port.
 app.listen 3000
-console.log 'Listening on port 3000...'
+console.log 'API listening on port 3000.'
 
 module.exports = app
