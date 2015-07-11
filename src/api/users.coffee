@@ -1,50 +1,30 @@
+express = require 'express'
 mongo = require 'mongodb'
+db = require './models/db'
+user = require './models/user'
+course = require './models/course'
 
-Server = mongo.Server
-Db     = mongo.Db
-BSON   = mongo.BSONPure
+app = new Express()
 
-server = new Server 'localhost', 27017, {auto_reconnect: true}
-db     = new Db 'test', server
+# User Routes
+app.get '/user', user.index
+app.get '/user/new', user.create
+app.post '/user/new', user.doCreate
+app.get '/user/edit', user.edit
+app.post '/user/edit', user.doEdit
+app.get '/user/delete', user.confirmDelete
+app.post '/user/delete', user.doDelete
 
-db.open (err, db) ->
-  unless err then db.collection 'users', { strict: true }, (err, collection) ->
-    if err 
-      console.log("The 'users' collection doesn't exist. Creating it with sample data...")
+app.get '/login', user.login
+app.post '/login', user.doLogin
+app.get '/logout', user.doLogout
 
-exports.findById = (req, res) ->
-  id = req.params.id
-  db.collection 'users', (err, collection) ->
-    collection.findOne {'_id': new BSON.ObjectID(id)}, (err, item) ->
-      res.send item
-
-exports.findAll = (req, res) ->
-  db.collection 'users', (err, collection) ->
-    collection.find().toArray (err, items) ->
-      res.send items
-
-exports.add = (req, res) ->
-  users = req.body
-  db.collection 'users', (err, collection) ->
-    collection.insert users, {safe:true}, (err, result) ->
-      res.send if err
-        { error: 'An error has occurred'}
-      else
-       result[0]
-
-exports.update = (q, r) ->
-  id = req.params.id
-  user = req.body
-  db.collection 'users', (err, collection) ->
-    collection.update {'_id':new BSON.ObjectID(id)}, user, {safe:true}, (err, result) ->
-      if err then r.send {'error':'An error has occurred'}
-      else r.send users
-
-exports.delete = (q, r) ->
-  id = req.params.id
-  db.collection 'users', (err, collection) ->
-    collection.remove {'_id':new BSON.ObjectID(id)}, { safe: true }, (err, result) ->
-      r.send if err
-        { error: "An error has occurred - #{err}" }
-      else
-        q.body
+# Course Routes
+app.get '/course', course.index
+app.get '/course/new', course.create
+app.post '/course/new', course.doCreate
+app.get '/course/:id', course.displayInfo
+app.get '/course/:id/edit', course.edit
+app.post '/course/:id/edit', course.doEdit
+app.get '/course/:id/delete', course.confirmDelete
+app.post '/course/:id/delete', course.doDelete

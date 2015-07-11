@@ -3,11 +3,13 @@
  #
  # Classes are instances of courses, they have datetimes.  Courses do not.
 
-orm = require 'mongoose'
-orm.connect process.env.DATABASE_URL or 'mongodb://localhost/sn'
+mongoose = require 'mongoose'
 
-Course = mongoose.model 'Cat',
+Course = mongoose.model 'Course',
   name: String
   summary: String
+  created: { type: Date, default: Date.now }
+  author: String
+  modified: Date
 
 module.exports = Course
