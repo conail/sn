@@ -13,6 +13,7 @@ app.use bodyParser()
 # User Routes
 app.get '/user',             (q,r) ->
   r.send User.find()
+
 app.get '/user/:id',         (q,r) ->
   r.send User.findById(q.id)
 
@@ -30,7 +31,9 @@ app.post '/user/:id/delete', (q,r) ->
 
 # Course Routes
 app.get '/course', (q,r) ->
-  r.send Course.find()
+  Course.find {}, (err, courses) ->
+    if err then throw err
+    r.send(courses)
 
 app.post '/course/new', (q,r) ->
   Course.create(q.user)
@@ -48,7 +51,7 @@ app.post '/course/:id/delete', (q,r) ->
   r.send 200
 
 # Bind server to port.
-app.listen 3000
+app.listen 3333
 console.log 'API listening on port 3000.'
 
 module.exports = app
