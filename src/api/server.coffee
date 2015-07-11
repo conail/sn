@@ -1,13 +1,15 @@
 express = require 'express'
 logger  = require 'morgan'
+cors    = require 'cors'
 bodyParser = require 'body-parser'
-mongo = require 'mongodb'
-db = require './models/db'
-User = require './models/user'
-Course = require './models/course'
+mongo   = require 'mongodb'
+db      = require './models/db'
+User    = require './models/user'
+Course  = require './models/course'
        
 app = express()
-app.use logger('dev')
+#app.use cors
+app.use logger 'dev'
 app.use bodyParser()
  
 # User Routes
@@ -31,9 +33,10 @@ app.post '/user/:id/delete', (q,r) ->
 
 # Course Routes
 app.get '/course', (q,r) ->
+  r.setHeader 'Access-Control-Allow-Origin', '*'
   Course.find {}, (err, courses) ->
     if err then throw err
-    r.send(courses)
+    r.send courses
 
 app.post '/course/new', (q,r) ->
   Course.create(q.user)

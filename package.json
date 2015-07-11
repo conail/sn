@@ -38,7 +38,8 @@
     "style-loader": "^0.8.3",
     "touch": "0.0.3",
     "underscore": "^1.8.2",
-    "mongodb": "~2.0.36"
+    "mongodb": "~2.0.36",
+    "cors": "~2.7.1"
   },
   "engines": {
     "node": "0.12.2"
