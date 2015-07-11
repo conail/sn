@@ -20,7 +20,7 @@ module.exports = React.createClass
         <a href="/logout">Logout</a>
       </nav>
       <nav id="primary">
-        <a href="/">Home</a>
+        <Link to="homepage">Home</Link>
         <Link to="courses">Courses</Link>
       </nav>
     </header>
