@@ -1,4 +1,4 @@
-## Older Browser Support (Internet Explorer)
+## MSIE Support
 window.addEventListener 'load', ->
   if typeof @XMLHttpRequest == 'undefined'
     console.log 'XMLHttpRequest is undefined'
@@ -15,27 +15,20 @@ window.addEventListener 'load', ->
             throw new Error 'This browser does not support XMLHttpRequest.'
 
 APIClient = ->
-  # Returns a JSON object given a valid REST URI.
-  get: (uri, success) ->
-    return null if @XMLHttpRequest == 'undefined'
-    url = "http://#{window.location.hostname}:3333/#{uri}"
-    xhr = new XMLHttpRequest()
-    xhr.addEventListener 'readystatechange', =>
-      if xhr.readyState is 4 and xhr.status in [200, 304]
-        success(eval '('+xhr.responseText+')')
-    xhr.open 'GET', url, true
-    xhr.send()
+  host: "http://#{location.hostname}:3333/"
 
-  post: (uri, data, success) ->
-    return null if @XMLHttpRequest == 'undefined'
-    url = "http://#{window.location.hostname}:3333/#{uri}"
-    xhr = new XMLHttpRequest()
-    xhr.addEventListener 'readystatechange', =>
-      if xhr.readyState is 4 and xhr.status in [200, 304]
-        success()
-    xhr.open 'POST', url, true
-    xhr.setRequestHeader 'Content-Type', 'application/json'
-    payload = JSON.stringify(data)
-    xhr.send() 
+  request: (verb, uri, callback, json) ->
+    r = new XMLHttpRequest()
+    r.addEventListener 'readystatechange', (r) ->
+      if r.readyState is 4 and r.status in [200, 304]
+        callback eval r.responseText
+    r.open verb, @host+uri, on
+    if json?
+      r.setRequestHeader 'Content-Type', 'application/json'
+      json = JSON.stringify json
+    r.send(json)
+  
+  get: (uri, success) ->  @request 'GET', uri, success
+  post: (uri, data, success) -> @request 'POST', uri, success, data
 
 module.exports = APIClient
