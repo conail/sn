@@ -3,17 +3,17 @@
 header, footer, main, article { display:block; }
 
 #app { background:#FFF; }
-#app > header { background:#333; color:#FFF; overflow:auto; padding:0.5em; }
+#app > header { background:#b71c1c; color:#FFF; overflow:auto; padding:0.5em; }
 #app > header > h1 { font-size:2em; margin:0.25em; }
 #app > header nav{  } 
 #app > header nav a { color:#FFF; display:inline-block; font-weight:bold; padding:0.25em 0.5em; text-decoration:none; text-transform:uppercase; } 
-#app > header nav a:hover { background:#FFF; color:#333; }
+#app > header nav a:hover { background:#FFF; color:#b71c1c; }
 #app > header nav#primary { float:left; }
 #app > header nav#user { float:right; }
-#app > footer { background:#333; color:#FFF; padding:1em; text-align:right; }
+#app > footer { background:#b71c1c; color:#FFF; padding:1em; text-align:right; }
 
 main { padding:1em; overflow:auto; }
-main > div > header { background:#555; color:#FFF; display:flex; margin:-1em -1em 1em -1em; padding:1em; }
+main > div > header { background:#111; color:#FFF; display:flex; margin:-1em -1em 1em -1em; padding:1em; }
 main > div > header h1 { font-size:1.5em; order:1; }
 main dl {  }
 main dl dt { font-weight:bold; }
@@ -34,7 +34,7 @@ form fieldset.controls { background:#EEE; padding:0.5em 1em; text-align:right; }
 form fieldset.controls button { background:#CCC; border-radius:0.3em; font-weight:bold; padding:0.25em 1em; margin-right:0.5em; }
 form fieldset.controls button.delete { background:#900; color:#FFF; float: left; }
 form fieldset.controls button.save { background:#060; color:#FFF; }
-form fieldset.controls button:hover { background:#333; color:#FFF; }
+form fieldset.controls button:hover { background:#b71c1c; color:#FFF; }
 
 .course { border:1px solid #CCC; width:20em; float:left; margin:0 1em 1em 0; }
 .course header h1 { background:#CCC; font-size:1.1em; padding:0.5em 1em; }
