@@ -18,7 +18,7 @@ APIClient = ->
   # Returns a JSON object given a valid REST URI.
   get: (uri, success) ->
     return null if @XMLHttpRequest == 'undefined'
-    url = 'http://localhost:3333/' + uri
+    url = "http://#{window.location.hostname}:3333/#{uri}"
     xhr = new XMLHttpRequest()
     xhr.addEventListener 'readystatechange', =>
       if xhr.readyState is 4 and xhr.status in [200, 304]
@@ -28,7 +28,7 @@ APIClient = ->
 
   post: (uri, data, success) ->
     return null if @XMLHttpRequest == 'undefined'
-    url = 'http://localhost:3333/' + uri
+    url = "http://#{window.location.hostname}:3333/#{uri}"
     xhr = new XMLHttpRequest()
     xhr.addEventListener 'readystatechange', =>
       if xhr.readyState is 4 and xhr.status in [200, 304]
