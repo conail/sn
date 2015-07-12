@@ -30,11 +30,14 @@ CourseList = React.createClass
         <h1>Courses</h1>
         <button onClick={@addCourse}>Add New Course</button>
       </header>
-      <ul style={@style.ul}>
-        {@state.courses.map (course) ->  
-          <Course id={course._id} name={course.name} summary={course.name}/>
-        }
+      <article>
+        <p>Double-click to edit.</p>
+        <ul style={@style.ul}>
+          {@state.courses.map (course) ->  
+            <Course id={course._id} name={course.name} summary={course.name}/>
+          }
       </ul>
+      </article>
     </div>
 
 module.exports = CourseList
