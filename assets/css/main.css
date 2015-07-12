@@ -5,17 +5,18 @@ header, footer, main, article { display:block; }
 #app { background:#FFF; }
 #app > header { background:#b71c1c; color:#FFF; overflow:auto; padding:0.5em; }
 #app > header > h1 { font-size:2em; margin:0.25em; }
-#app > header nav{  } 
-#app > header nav a { color:#FFF; display:inline-block; font-weight:bold; padding:0.25em 0.5em; text-decoration:none; text-transform:uppercase; } 
+#app > header nav {  } 
+#app > header nav a { color:#FFF; display:inline-block; font-weight:bold; adding:0.25em 0.5em; text-decoration:none; text-transform:uppercase; padding:0.5em; } 
 #app > header nav a:hover { background:#FFF; color:#b71c1c; }
 #app > header nav#primary { float:left; }
 #app > header nav#user { float:right; }
 #app > footer { background:#b71c1c; color:#FFF; padding:1em; text-align:right; }
 
 main { padding:1em; overflow:auto; }
-main > div > header { background:#111; color:#FFF; display:flex; margin:-1em -1em 1em -1em; padding:1em; }
+main > div > header { background:#111; color:#FFF; display:flex; justify-content:space-between; margin:-1em -1em 1em -1em; padding:1em; }
 main > div > header h1 { font-size:1.5em; order:1; }
-main > div > header button { order:2; }
+main > div > header button { background:#111; color:#FFF; font-weight:bold; order:2; }
+main p { margin:0 0 1em 0; }
 main dl {  }
 main dl dt { font-weight:bold; }
 main dl dd { margin:0 0 1em 0; }
@@ -25,13 +26,13 @@ main dl dd { margin:0 0 1em 0; }
 #profile header img { height:4em; order:0; margin:-1em 1em -1em -1em; }
 #profile header ul { float:right; order:2; list-style:none; }
 
-form { border:1px solid #DDD; margin-bottom:1em; }
+form { background:#EEE; border:1px solid #DDD; margin-bottom:1em; }
 form fieldset { padding:1em 1em 0 1em; }
 form fieldset label { display:block; margin-bottom:1em; }
 form fieldset label span { display:block; font-weight:bold; margin-bottom:0.25em; }
 form fieldset label input,
 form fieldset label textarea { border:1px solid #AAA; border-radius:0.2em; padding:2px; width:94%; }
-form fieldset.controls { background:#EEE; padding:0.5em 1em; text-align:right; }
+form fieldset.controls { background:#DDD; padding:0.5em 1em; text-align:right; }
 form fieldset.controls button { background:#CCC; border-radius:0.3em; font-weight:bold; padding:0.25em 1em; margin-right:0.5em; }
 form fieldset.controls button.delete { background:#900; color:#FFF; float: left; }
 form fieldset.controls button.save { background:#060; color:#FFF; }
