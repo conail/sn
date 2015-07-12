@@ -27,14 +27,13 @@ gulp.task 'webpack:build-dev', (callback) ->
     return
   return
 gulp.task 'webpack-dev-server', (callback) ->
-  touch.sync('./assets/main.css', time: new Date(0))
-  DevServer = require('webpack-dev-server')
-  devServer = new DevServer(webpack(devConfig),
+  touch.sync './assets/css/main.css', time: new Date(0)
+  DevServer = require 'webpack-dev-server'
+  devServer = new DevServer webpack(devConfig),
     contentBase: './build/'
     hot: true
     watchDelay: 100
     noInfo: true
-  )
   devServer.listen 8080, '0.0.0.0', (err) ->
     throw new gutil.PluginError('webpack-dev-server', err) if err
     gutil.log '[webpack-dev-server]', 'http://localhost:8080'
@@ -50,4 +49,4 @@ gulp.task 'copy-assets', ->
 gulp.task 'default', -> gulp.start 'build'
 gulp.task 'build', ['webpack:build', 'copy-assets']
 gulp.task 'watch', ['copy-assets', 'api-server', 'webpack-dev-server'], ->
-  gulp.watch ['src/webapp/**'], ['copy-assets']
+  gulp.watch 'assets/**', ['copy-assets', 'webpack:build-dev']

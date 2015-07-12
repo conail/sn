@@ -1,0 +1,23 @@
+* { border:0; font:1em Roboto, Helvetica, Arial, sans-serif; margin:0; padding:0; }
+
+header, footer, main, article { display:block; }
+
+#app { background:#000; }
+#app > header { background:#069; }
+#app > header > h1 { font-size:2em; }
+#app > header nav {  } 
+#app > header nav a { color:#FFF; display:inline-block; font-weight:bold; padding:0.25em; text-decoration:none; text-transform:uppercase; } 
+#app > header nav a:hover { background:#FFF; color:#069; }
+#app > header nav#user { float:right; }
+#app > footer { background:#069; }
+
+main { margin:1em; }
+
+form {  }
+form fieldset {  }
+form fieldset label { display:block; margin-bottom:1em; }
+form fieldset label span { display:block; font-weight:bold; }
+form fieldset label input,
+form fieldset label textarea { border:1px solid #AAA; padding:2px; width:100%; }
+form fieldset.controls {  }
+form fieldset.controls button { background:#999; margin:0.5em; padding:1em; }
