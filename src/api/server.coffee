@@ -55,10 +55,9 @@ app.post '/course/:id/edit', (q,r) ->
   r.send 200
 
 app.post '/course/:id/delete', (q,r) ->
-  r.setHeader 'Access-Control-Allow-Origin', '*'
-  Course.findById q.id, (err, course) ->
-    course.delete()
-  r.send 200
+  r.header 'Access-Control-Allow-Origin', '*'
+  Course.findById q.params.id, (err, course) =>
+    r.send course.remove()
 
 # Bind server to port.
 app.listen 3333
