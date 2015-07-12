@@ -14,13 +14,21 @@ CourseList = React.createClass
 
   componentDidMount: ->
     @api = new APIClient()
+    @refresh()
+
+  refresh: ->
     @api.get 'course/', (data) =>
       @setState courses: data
+
+  addCourse: ->
+    @state.courses.push { _id: null }
+    @setState @state.courses
 
   render: ->
     <div id="courses">
       <header>
         <h1>Courses</h1>
+        <button onClick={@addCourse}>Add New Course</button>
       </header>
       <ul style={@style.ul}>
         {@state.courses.map (course) ->  

@@ -34,6 +34,7 @@ APIClient = ->
       if xhr.readyState is 4 and xhr.status in [200, 304]
         success()
     xhr.open 'POST', url, true
+    xhr.setRequestHeader 'Content-Type', 'application/json'
     payload = JSON.stringify(data)
     xhr.send() 
 

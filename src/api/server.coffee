@@ -40,8 +40,9 @@ app.get '/course', (q,r) ->
 
 app.post '/course/new', (q,r) ->
   r.setHeader 'Access-Control-Allow-Origin', '*'
-  Course.create(q.user)
-  r.send 200
+  console.log q.body
+  #Course.create(q.user)
+  r.status(200).end()
 
 app.get '/course/:id', (q,r) ->
   r.setHeader 'Access-Control-Allow-Origin', '*'

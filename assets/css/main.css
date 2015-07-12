@@ -15,6 +15,7 @@ header, footer, main, article { display:block; }
 main { padding:1em; overflow:auto; }
 main > div > header { background:#111; color:#FFF; display:flex; margin:-1em -1em 1em -1em; padding:1em; }
 main > div > header h1 { font-size:1.5em; order:1; }
+main > div > header button { order:2; }
 main dl {  }
 main dl dt { font-weight:bold; }
 main dl dd { margin:0 0 1em 0; }

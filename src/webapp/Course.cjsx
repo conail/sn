@@ -2,7 +2,7 @@ APIClient = require './APIClient'
 
 Course = React.createClass
   getInitialState: ->
-    editing: false
+    editing: @props.id is null
     name: @props.name
     summary: @props.summary
 
@@ -24,7 +24,7 @@ Course = React.createClass
     unless @props.id then return @cancel()
     uri = "course/#{@props.id}/delete" 
     @api.post uri, {}, (data) =>
-      @setState editing: false
+      @._owner.refresh()
 
   render: ->
     if @state.editing
