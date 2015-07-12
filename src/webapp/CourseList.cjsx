@@ -14,7 +14,7 @@ CourseList = React.createClass
 
   componentDidMount: ->
     @api = new APIClient()
-    @api.read 'course/', (data) =>
+    @api.get 'course/', (data) =>
       @setState courses: data
 
   render: ->
@@ -24,7 +24,7 @@ CourseList = React.createClass
       </header>
       <ul style={@style.ul}>
         {@state.courses.map (course) ->  
-          <Course name={course.name} summary={course.name}/>
+          <Course id={course._id} name={course.name} summary={course.name}/>
         }
       </ul>
     </div>
