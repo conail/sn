@@ -12,7 +12,7 @@ header, footer, main, article { display:block; }
 #app > header nav#user { float:right; }
 #app > footer { background:#333; color:#FFF; padding:1em; text-align:right; }
 
-main { padding:1em; }
+main { padding:1em; overflow:auto; }
 main > div > header { background:#555; color:#FFF; display:flex; margin:-1em -1em 1em -1em; padding:1em; }
 main > div > header h1 { font-size:1.5em; order:1; }
 main dl {  }
@@ -24,13 +24,16 @@ main dl dd { margin:0 0 1em 0; }
 #profile header img { height:4em; order:0; margin:-1em 1em -1em -1em; }
 #profile header ul { float:right; order:2; list-style:none; }
 
-
 form { border:1px solid #DDD; margin-bottom:1em; }
-form fieldset { padding:1em; }
+form fieldset { padding:1em 1em 0 1em; }
 form fieldset label { display:block; margin-bottom:1em; }
 form fieldset label span { display:block; font-weight:bold; margin-bottom:0.25em; }
 form fieldset label input,
-form fieldset label textarea { border:1px solid #AAA; padding:2px; }
-form fieldset.controls { background:#EEE; padding:1em; }
-form fieldset.controls button { background:#CCC; font-weight:bold; padding:0.5em 1em; margin-right:0.5em; }
+form fieldset label textarea { border:1px solid #AAA; border-radius:0.2em; padding:2px; }
+form fieldset.controls { background:#EEE; padding:0.5em 1em; }
+form fieldset.controls button { background:#CCC; border-radius:0.3em; font-weight:bold; padding:0.5em 1em; margin-right:0.5em; }
 form fieldset.controls button:hover { background:#333; color:#FFF; }
+
+.course { border:1px solid #CCC; width:20em; float:left; margin:0 1em 1em 0; }
+.course header h1 { background:#CCC; font-size:1.3em; padding:1em; }
+.course .summary { padding:1em; }
