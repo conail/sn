@@ -29,11 +29,13 @@ form fieldset { padding:1em 1em 0 1em; }
 form fieldset label { display:block; margin-bottom:1em; }
 form fieldset label span { display:block; font-weight:bold; margin-bottom:0.25em; }
 form fieldset label input,
-form fieldset label textarea { border:1px solid #AAA; border-radius:0.2em; padding:2px; }
-form fieldset.controls { background:#EEE; padding:0.5em 1em; }
-form fieldset.controls button { background:#CCC; border-radius:0.3em; font-weight:bold; padding:0.5em 1em; margin-right:0.5em; }
+form fieldset label textarea { border:1px solid #AAA; border-radius:0.2em; padding:2px; width:94%; }
+form fieldset.controls { background:#EEE; padding:0.5em 1em; text-align:right; }
+form fieldset.controls button { background:#CCC; border-radius:0.3em; font-weight:bold; padding:0.25em 1em; margin-right:0.5em; }
+form fieldset.controls button.delete { background:#900; color:#FFF; float: left; }
+form fieldset.controls button.save { background:#060; color:#FFF; }
 form fieldset.controls button:hover { background:#333; color:#FFF; }
 
 .course { border:1px solid #CCC; width:20em; float:left; margin:0 1em 1em 0; }
-.course header h1 { background:#CCC; font-size:1.3em; padding:1em; }
+.course header h1 { background:#CCC; font-size:1.1em; padding:0.5em 1em; }
 .course .summary { padding:1em; }

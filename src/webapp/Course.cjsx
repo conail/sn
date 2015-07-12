@@ -40,9 +40,9 @@ Course = React.createClass
           </label>
         </fieldset>
         <fieldset className="controls">
-          <button onClick={@delete}>Delete</button>
+          <button className="delete" onClick={@delete}>Delete</button>
           <button onClick={@cancel}>Cancel</button>
-          <button onClick={@save}>Save</button>
+          <button className="save" onClick={@save}>Save</button>
         </fieldset>
       </form>
     else
