@@ -39,18 +39,25 @@ app.get '/course', (q,r) ->
     r.send courses
 
 app.post '/course/new', (q,r) ->
+  r.setHeader 'Access-Control-Allow-Origin', '*'
   Course.create(q.user)
   r.send 200
 
 app.get '/course/:id', (q,r) ->
-  r.send Course.findById(q.id)
+  r.setHeader 'Access-Control-Allow-Origin', '*'
+  Course.findById q.id, (err, course) ->
+    r.send course
 
 app.post '/course/:id/edit', (q,r) ->
-  User.findById(q.id).update(q.user)
+  r.setHeader 'Access-Control-Allow-Origin', '*'
+  Course.findById q.id, (err, course) ->
+    course.update(q.user)
   r.send 200
 
 app.post '/course/:id/delete', (q,r) ->
-  Course.findById(q.id).delete()
+  r.setHeader 'Access-Control-Allow-Origin', '*'
+  Course.findById q.id, (err, course) ->
+    course.delete()
   r.send 200
 
 # Bind server to port.

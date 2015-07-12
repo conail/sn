@@ -16,14 +16,25 @@ window.addEventListener 'load', ->
 
 APIClient = ->
   # Returns a JSON object given a valid REST URI.
-  read: (uri, success) ->
+  get: (uri, success) ->
     return null if @XMLHttpRequest == 'undefined'
     url = 'http://localhost:3333/' + uri
     xhr = new XMLHttpRequest()
     xhr.addEventListener 'readystatechange', =>
       if xhr.readyState is 4 and xhr.status in [200, 304]
         success(eval '('+xhr.responseText+')')
-    xhr.open 'GET', url, false
+    xhr.open 'GET', url, true
     xhr.send()
+
+  post: (uri, data, success) ->
+    return null if @XMLHttpRequest == 'undefined'
+    url = 'http://localhost:3333/' + uri
+    xhr = new XMLHttpRequest()
+    xhr.addEventListener 'readystatechange', =>
+      if xhr.readyState is 4 and xhr.status in [200, 304]
+        success()
+    xhr.open 'POST', url, true
+    xhr.setRequestHeader 'Content-Type', 'application/json'
+    xhr.send JSON.stringify(data)
 
 module.exports = APIClient
