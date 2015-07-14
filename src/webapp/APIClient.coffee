@@ -28,7 +28,8 @@ APIClient = ->
       json = JSON.stringify json
     r.send(json)
   
-  get: (uri, success) ->  @request 'GET', uri, success
-  post: (uri, data, success) -> @request 'POST', uri, success, data
+  get:    (uri, fn)       -> @request 'GET',    uri, fn
+  delete: (uri, fn)       -> @request 'DELETE', uri, fn
+  post:   (uri, data, fn) -> @request 'POST',   uri, fn, data
 
 module.exports = APIClient
