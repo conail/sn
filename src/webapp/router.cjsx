@@ -6,7 +6,7 @@ Route        = Router.Route
 App          = require './AppLayout'
 RegisterForm = require './RegisterForm'
 Profile      = require './Profile'
-CourseList   = require './CourseList'
+CourseList   = require './courses/CourseList'
 Homepage     = require './Homepage'
 BasicCalculator = require './BasicCalculator'
 
