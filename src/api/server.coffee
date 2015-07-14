@@ -8,7 +8,7 @@ User    = require './models/user'
 Course  = require './models/course'
        
 app = express()
-#app.use cors
+app.use cors()
 app.use logger 'dev'
 app.use bodyParser()
  
@@ -33,30 +33,25 @@ app.post '/user/:id/delete', (q,r) ->
 
 # Course Routes
 app.get '/course', (q,r) ->
-  r.setHeader 'Access-Control-Allow-Origin', '*'
   Course.find {}, (err, courses) ->
     if err then throw err
     r.send courses
 
-app.post '/course/new', (q,r) ->
-  r.setHeader 'Access-Control-Allow-Origin', '*'
+app.post '/course', (q,r) ->
   console.log q.body
-  #Course.create(q.user)
+  Course.create(q.user)
   r.status(200).end()
 
 app.get '/course/:id', (q,r) ->
-  r.setHeader 'Access-Control-Allow-Origin', '*'
   Course.findById q.id, (err, course) ->
     r.send course
 
-app.post '/course/:id/edit', (q,r) ->
-  r.setHeader 'Access-Control-Allow-Origin', '*'
+app.post '/course/:id', (q,r) ->
   Course.findById q.id, (err, course) ->
     course.update(q.user)
   r.send 200
 
-app.post '/course/:id/delete', (q,r) ->
-  r.header 'Access-Control-Allow-Origin', '*'
+app.delete '/course/:id', (q,r) ->
   Course.findById q.params.id, (err, course) =>
     r.send course.remove()
 
