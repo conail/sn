@@ -16,7 +16,8 @@ module.exports = React.createClass
     @api.get 'course/', (data) => @setState courses: data
 
   add: ->
-    @setState { courses: @state.courses.push({})}
+    @state.courses.push {}
+    @setState { courses: @state.courses }
 
   edit: (e) -> 
     console.log e
