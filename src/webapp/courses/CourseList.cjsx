@@ -16,13 +16,14 @@ module.exports = React.createClass
     @api.get 'course/', (data) => @setState courses: data
 
   add: ->
-    @setState @state.courses + [{}]
+    @setState { courses: @state.courses.push({})}
 
   edit: (e) -> 
-    @setState @state.courses[e.target.key].editing = on
+    console.log e
+    #@setState @state.courses[e.target.key].editing: on
 
   cancel: (e) -> 
-    @setState @state.courses[e.target.key].editing = off
+    #@setState @state.courses[e.target.key].editing: off
 
   delete: (e) ->
     @api.delete 'course/' + e.target.key
@@ -36,8 +37,7 @@ module.exports = React.createClass
       </header>
       <article>
         <p>Double-click to edit.</p>
-        {
-          @state.courses.map (x) ->  
+        {@state.courses.map (x) ->  
             if x.editing
               <CourseEditForm key={x._id} {...x} onDelete={@delete} onSave={@save} onCancel={@cancel}/>
             else
