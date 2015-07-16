@@ -1,17 +1,13 @@
 React = require 'react'
 
-Profile = React.createClass
-  sendMessage: (e) ->
-    alert 'My message'
-
+module.exports = React.createClass
   render: ->
-    @props.name = 'John Smith'
     <div id="profile">
       <header>
         <h1>{@props.name}</h1>
         <img src="/img/avatar.png"/> 
         <ul class="actions">
-          <li><button onClick={@sendMessage}>Private Message</button></li>
+          <li><button>Private Message</button></li>
         </ul>
       </header>
       <div className="metadata">
@@ -38,5 +34,3 @@ Profile = React.createClass
         <h2>Courses</h2>
       </div>
     </div>
-
-module.exports = Profile

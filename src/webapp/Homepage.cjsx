@@ -4,8 +4,8 @@ module.exports = React.createClass
   displayName: 'Homepage'
 
   render: -> 
-    <div>
+    <article>
       <header>
         <h1>Home</h1>
       </header>
-    </div>
+    </article>

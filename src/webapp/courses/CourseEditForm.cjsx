@@ -1,11 +1,6 @@
 React     = require 'react'
 
 module.exports = React.createClass
-  getInitialState: ->
-    name:    @props.name
-    summary: @props.summary
-
-  cancel: -> @props.onCancel() 
   save:   -> @props.onSave()
   delete: -> @props.onDelete()
 
@@ -20,10 +15,11 @@ module.exports = React.createClass
           <span>Summary</span>
           <textarea defaultValue={@props.summary}/>
         </label>
+        <p>Created: {@props.data?.created}</p>
       </fieldset>
       <fieldset className="controls">
         <button className="delete" onClick={@delete}>Delete</button>
-        <button onClick={@cancel}>Cancel</button>
+        <button onClick={@props.onCancel}>Cancel</button>
         <button className="save" onClick={@save}>Save</button>
       </fieldset>
     </form>

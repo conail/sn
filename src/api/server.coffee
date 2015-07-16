@@ -33,8 +33,8 @@ app.post '/user/:id/delete', (q,r) ->
 
 # Course Routes
 app.get '/course', (q,r) ->
-  Course.find {}, (err, courses) ->
-    if err then throw err
+  Course.find (err, courses) ->
+    throw err if err
     r.send courses
 
 app.post '/course', (q,r) ->

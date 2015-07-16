@@ -8,41 +8,25 @@ module.exports = React.createClass
   getInitialState: ->
     courses: []
 
+  # Read existing courses from the server.
   componentDidMount: ->
     @api = new APIClient()
-    @loadAll()
-
-  loadAll: ->
     @api.get 'course/', (data) => @setState courses: data
 
+  # Add a course form to edit.
   add: ->
-    @state.courses.push {}
+    @state.courses.push { data: {}, editing: on }
     @setState { courses: @state.courses }
-
-  edit: (e) -> 
-    console.log e
-    #@setState @state.courses[e.target.key].editing: on
-
-  cancel: (e) -> 
-    #@setState @state.courses[e.target.key].editing: off
-
-  delete: (e) ->
-    @api.delete 'course/' + e.target.key
-    @loadAll()
 
   render: ->
     <div id="courselist">
       <header>
         <h1>Courses</h1>
-        <button onClick={@add}>Add New Course</button>
+        <button onClick={@add}>Add Course</button>
       </header>
       <article>
         <p>Double-click to edit.</p>
-        {@state.courses.map (x) ->  
-            if x.editing
-              <CourseEditForm key={x._id} {...x} onDelete={@delete} onSave={@save} onCancel={@cancel}/>
-            else
-              <Course key={x._id} {...x} onEdit={@edit}/>
-        }
+        { for x in @state.courses 
+            <Course key={x._id} {...x}/> }
       </article>
     </div>

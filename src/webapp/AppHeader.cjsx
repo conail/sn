@@ -4,7 +4,7 @@ RouteHandler = require('react-router').RouteHandler
 module.exports = React.createClass
   displayName: 'AppHeader'
 
-  siteTitle: 'Site Title'
+  siteTitle: 'SN'
   
   render: ->
     <header>
